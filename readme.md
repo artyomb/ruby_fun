@@ -1,4 +1,4 @@
-# Different Ruby experiments just for fun)
+# Various Ruby experiments just for fun)
 
 ## Ruby meta mystery
 Using module prepend to stub and profile child Class methods
