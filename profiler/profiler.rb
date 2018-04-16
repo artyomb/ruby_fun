@@ -32,10 +32,13 @@ class TestClass
     puts "foo2: #{str}, #{count}"
   end
 
-  prepend Profiler
+  # prepend Profiler # Variant #1
 end
 
-test = TestClass.new 'hello'
+# test = TestClass.new 'hello'
+test = TestClass.prepend(Profiler).new 'hello' # Variant #2
+
+# test.class.prepend Profiler # Variant #3
 test.foo2 'text for foo2', 3
 
 # initialize: hello
