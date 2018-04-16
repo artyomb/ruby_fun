@@ -11,30 +11,36 @@ module Profiler
         result
       end
     end
- end
-
+  end
 end
 
 
 class TestClass
   def initialize(str)
-    puts str
+    puts "initialize: #{str}"
     sleep 1
     foo1 'text for foo1'
   end
 
   def foo1(str)
     sleep 1
-    puts str
+    puts "foo1: #{str}"
   end
 
   def foo2(str, count)
     sleep 1
-    puts str * count
+    puts "foo2: #{str}, #{count}"
   end
 
   prepend Profiler
 end
 
-test = TestClass.new 'initialize'
-test.foo2 'foo2', 3
+test = TestClass.new 'hello'
+test.foo2 'text for foo2', 3
+
+# initialize: hello
+# foo1: text for foo1
+# [Profiler] (foo1) execution time: 1 seconds
+# [Profiler] (initialize) execution time: 2 seconds
+# foo2: text for foo2, 3
+# [Profiler] (foo2) execution time: 1 seconds
