@@ -51,9 +51,19 @@ end
 thing.extend(Extend)
 
 thing.call(1)
+# 1 singleton
+# 2 extend
+# 3 prepend
+# 4 klass
+# 5 include
+# 6 super
 
 p thing.class.ancestors
+# [Prepend, Klass, Include, Super, Object, Kernel, BasicObject]
 p thing.singleton_class.ancestors
+# [#<Class:#<Klass:0x000000020ed2b8>>, Extend, Prepend, Klass, Include, Super, Object, Kernel, BasicObject]
 
 p Klass.new.singleton_class
 p Klass.new.singleton_class
+# #<Class:#<Klass:0x000000020ec020>>
+# #<Class:#<Klass:0x000000020e3f10>>
