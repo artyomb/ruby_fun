@@ -33,12 +33,10 @@ class Klass < Super
   include Include
   prepend Prepend
 
-
   def call(level)
     puts "#{level} klass"
     super(level + 1) rescue nil
   end
-
 end
 
 thing = Klass.new
